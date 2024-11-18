@@ -45,22 +45,22 @@ public class Movement : MonoBehaviour
         // Left/Right movement.
         if (APressed)
         {
-            body.velocity = new Vector2(-runSpeed, body.velocity.y); // Move left physics.
+            body.linearVelocity = new Vector2(-runSpeed, body.linearVelocity.y); // Move left physics.
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z); // Rotating the character object to the left.
             APressed = false; // Returning initial value.
         }
         else if (DPressed)
         {
-            body.velocity = new Vector2(runSpeed, body.velocity.y); // Move right physics.
+            body.linearVelocity = new Vector2(runSpeed, body.linearVelocity.y); // Move right physics.
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z); // Rotating the character object to the right.
             DPressed = false; // Returning initial value.
         }
-        else body.velocity = new Vector2(0, body.velocity.y);
+        else body.linearVelocity = new Vector2(0, body.linearVelocity.y);
 
         // Jumps.
         if (jumpPressed && isGrounded)
         {
-            body.velocity = new Vector2(0, jumpForce); // Jump physics.
+            body.linearVelocity = new Vector2(0, jumpForce); // Jump physics.
             jumpPressed = false; // Returning initial value.
         }
 
